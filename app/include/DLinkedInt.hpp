@@ -1,8 +1,8 @@
 #ifndef SD_DLINKEDINT_H
 #define SD_DLINKEDINT_H
 
-enum class Posicao {
-    BEGIN,
+enum class Position {
+    START,
     FINAL
 };
 
@@ -14,15 +14,16 @@ private:
         DLIElement* lElement = nullptr;
         DLIElement* rElement = nullptr;
 
-        DLIElement(int value): value(value){}
+        DLIElement(int value): value(value){
+}
     };
     
     DLIElement* startElement = nullptr;
     DLIElement* finalElement = nullptr;
 public:
-    void insereLista(int valor, Posicao posicao = Posicao::FINAL);
-    void removeValor(int valor);
-    void imprime();
+    void insertList(int value, Position position = Position::FINAL);
+    void removeValue(int value, bool foundElement = false);
+    void printList();
 };
 
 #endif

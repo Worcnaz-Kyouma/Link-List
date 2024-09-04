@@ -2,11 +2,14 @@
 
 int main() {
     DLinkedInt list;
-    list.insereLista(2);
-    list.insereLista(3);
-    list.insereLista(1, Posicao::BEGIN);
+    list.insertList(2);
+    list.insertList(3);
+    list.insertList(1, Position::START);
 
-    list.imprime();
+    list.removeValue(3);
+    list.removeValue(1);
+    list.removeValue(2);
+    list.printList();
 
     return 0;
 }
