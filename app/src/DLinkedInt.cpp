@@ -28,7 +28,7 @@ void DLinkedInt::removeValue(int value, bool foundElement) {
 
     if(this->startElement->value == value and this->startElement == this->finalElement) {
         this->startElement = this->finalElement = nullptr;
-        free(this->startElement);
+        delete(this->startElement);
         return;
     }
 
@@ -36,7 +36,7 @@ void DLinkedInt::removeValue(int value, bool foundElement) {
         DLIElement *nextElement = this->startElement->rElement;
 
         nextElement->lElement = nullptr;
-        free(this->startElement);
+        delete(this->startElement);
         this->startElement = nextElement;
 
         this->removeValue(value, true);
@@ -44,7 +44,7 @@ void DLinkedInt::removeValue(int value, bool foundElement) {
         DLIElement *penultElement = this->finalElement->lElement;
 
         penultElement->rElement = nullptr;
-        free(this->finalElement);
+        delete(this->finalElement);
         this->finalElement = penultElement;
         
         this->removeValue(value, true);
@@ -54,7 +54,7 @@ void DLinkedInt::removeValue(int value, bool foundElement) {
             if(element->value == value) {
                 element->rElement->lElement = element->lElement;
                 element->lElement->rElement = element->rElement;
-                free(element);
+                delete(element);
                 foundElement = true;
             }
 
